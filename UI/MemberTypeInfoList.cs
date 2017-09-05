@@ -1,23 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Bll;
-using Common;
 using Model;
 
 namespace UI
 {
     public partial class MemberTypeInfoList : Form
     {
-        public MemberTypeInfoList()
+        public event Action TypeEvent;
+        private static readonly MemberTypeInfoList memberTypeInfoList = new MemberTypeInfoList();
+        private MemberTypeInfoList()
         {
             InitializeComponent();
         }
+
+        public static MemberTypeInfoList Create()
+        {
+            return memberTypeInfoList;
+        }
+
         MemberTypeInfoBll mtiBll = new MemberTypeInfoBll();
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,16 +34,17 @@ namespace UI
                 MDiscount = Convert.ToDecimal(txtDiscount.Text.Trim()),
                 MIsDelete = false
             };
-            if (btn_Add.Text == "添加")
+            if (btn_Add.Text == @"添加")
             {
                 if (mtiBll.Add(mi))
                 {
                     btn_Cancel_Click(null, null);
                     ReLoad_List();
+                    if (TypeEvent != null) TypeEvent();
                 }
                 else
                 {
-                    MessageBox.Show("添加出错");
+                    MessageBox.Show(@"添加出错");
                 }
             }
             else
@@ -52,10 +54,11 @@ namespace UI
                 {
                     btn_Cancel_Click(null, null);
                     ReLoad_List();
+                    if (TypeEvent != null) TypeEvent();
                 }
                 else
                 {
-                    MessageBox.Show("修改出错");
+                    MessageBox.Show(@"修改出错");
                 }
             }
         }
@@ -86,6 +89,7 @@ namespace UI
                     if (mtiBll.Remove(id))
                     {
                         ReLoad_List();
+                        if (TypeEvent != null) TypeEvent();
                     }
                     else
                     {

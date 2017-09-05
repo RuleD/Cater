@@ -18,7 +18,7 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            if (this.Tag.ToString().Equals("0"))
+            if (this.Tag != null && this.Tag.ToString().Equals("0"))
             {
                 menuManager.Visible = false;
             }
@@ -27,6 +27,13 @@ namespace UI
         private void menuQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void menuMember_Click(object sender, EventArgs e)
+        {
+            MemberInfoList m = MemberInfoList.Create();
+            m.Show();
+            m.Focus();
         }
     }
 }
