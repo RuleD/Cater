@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagerInfoDal.cs" />
+    <Compile Include="MemberTypeInfoDal.cs" />
     <Compile Include="SqliteHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
