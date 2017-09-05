@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Bll;
 
 namespace UI
 {
@@ -14,6 +15,12 @@ namespace UI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ManagerInfoBll miBll = new ManagerInfoBll();
+            dataGridView1.DataSource = miBll.GetList();
         }
     }
 }
