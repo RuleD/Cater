@@ -43,6 +43,7 @@
     <Compile Include="DishInfoBll.cs" />
     <Compile Include="MemberInfoBll.cs" />
     <Compile Include="DishTypeInfoBll.cs" />
+    <Compile Include="HallInfoBll.cs" />
     <Compile Include="MemberTypeInfoBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
