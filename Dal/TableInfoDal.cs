@@ -26,7 +26,7 @@ namespace Dal
                     TTitle = row["TTitle"].ToString(),
                     THallId = Convert.ToInt32(row["THallId"]),
                     TIsFree = Convert.ToBoolean(row["TIsFree"].ToString()),
-                    TIsDelete = Convert.ToBoolean(row["TIsDelete"].ToString()),
+                    TIsDelete = row["TIsDelete"].ToString().Equals("1"),
                     THallTitle = row["THallTitle"].ToString()
                 });
 

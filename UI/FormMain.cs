@@ -49,5 +49,12 @@ namespace UI
             m.Show();
             m.Focus();
         }
+
+        private void menuTable_Click(object sender, EventArgs e)
+        {
+            TableInfoList t=TableInfoList.Create();
+            t.Show();
+            t.Focus();
+        }
     }
 }

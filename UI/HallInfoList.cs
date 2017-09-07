@@ -9,7 +9,7 @@ namespace UI
     {
         public event Action TypeEvent;
         private static HallInfoList hallInfoList;
-        public HallInfoList()
+        private HallInfoList()
         {
             InitializeComponent();
         }

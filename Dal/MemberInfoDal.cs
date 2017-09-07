@@ -28,7 +28,7 @@ namespace Dal
                     MMoney = Convert.ToDecimal(row["MMoney"].ToString()),
                     MTitle = row["MTitle"].ToString(),
                     MTypeId = Convert.ToInt32(row["MTypeId"]),
-                    MIsDelete = Convert.ToBoolean(row["MIsDelete"].ToString())
+                    MIsDelete = row["MIsDelete"].ToString().Equals("1")
                 });
 
             }

@@ -15,7 +15,7 @@ namespace UI
     public partial class TableInfoList : Form
     {
         private static TableInfoList tableInfoList;
-        public TableInfoList()
+        private TableInfoList()
         {
             InitializeComponent();
         }
@@ -126,7 +126,7 @@ namespace UI
 
         private void btn_Type_Click(object sender, EventArgs e)
         {
-            DishTypeInfoList m = DishTypeInfoList.Create();
+            HallInfoList m = HallInfoList.Create();
             m.TypeEvent += Reloading;
             m.Show();
             m.Focus();

@@ -29,7 +29,7 @@ namespace Dal
                 {
                     HId = Convert.ToInt32(row["HId"]),
                     HTitle = row["HTitle"].ToString(),
-                    HIsDelete = Convert.ToBoolean(row["HIsDelete"].ToString())
+                    HIsDelete = row["HIsDelete"].ToString().Equals("1")
                 });
 
             }

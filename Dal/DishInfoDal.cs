@@ -27,7 +27,7 @@ namespace Dal
                     DPrice = Convert.ToDecimal(row["DPrice"].ToString()),
                     DChar = row["DChar"].ToString(),
                     DTypeId = Convert.ToInt32(row["DTypeId"]),
-                    DIsDelete = Convert.ToBoolean(row["DIsDelete"].ToString()),
+                    DIsDelete = row["DIsDelete"].ToString().Equals("1"),
                     DTypeTitle = row["DTypeTitle"].ToString()
                 });
 
