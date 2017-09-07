@@ -35,5 +35,19 @@ namespace UI
             m.Show();
             m.Focus();
         }
+
+        private void menuDish_Click(object sender, EventArgs e)
+        {
+            DishInfoList d=DishInfoList.Create();
+            d.Show();
+            d.Focus();
+        }
+
+        private void menuManager_Click(object sender, EventArgs e)
+        {
+            ManagerInfoList m=ManagerInfoList.Create();
+            m.Show();
+            m.Focus();
+        }
     }
 }

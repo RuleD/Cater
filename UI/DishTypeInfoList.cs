@@ -8,14 +8,18 @@ namespace UI
     public partial class DishTypeInfoList : Form
     {
         public event Action TypeEvent;
-        private static readonly DishTypeInfoList dishTypeInfoList = new DishTypeInfoList();
-        public DishTypeInfoList()
+        private static DishTypeInfoList dishTypeInfoList;
+        private DishTypeInfoList()
         {
             InitializeComponent();
         }
 
         public static DishTypeInfoList Create()
         {
+            if (dishTypeInfoList == null || dishTypeInfoList.IsDisposed)
+            {
+                dishTypeInfoList = new DishTypeInfoList();
+            }
             return dishTypeInfoList;
         }
 

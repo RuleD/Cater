@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MsChnCharInfo">
-      <HintPath>..\packages\MsChnCharInfo.1.0.0\MsChnCharInfo.dll</HintPath>
+    <Reference Include="ChnCharInfo">
+      <HintPath>..\packages\ChnCharInfo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +58,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DishInfoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DishInfoList.Designer.cs">
+      <DependentUpon>DishInfoList.cs</DependentUpon>
     </Compile>
     <Compile Include="MemberInfoList.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DishInfoList.resx">
+      <DependentUpon>DishInfoList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MemberInfoList.resx">
       <DependentUpon>MemberInfoList.cs</DependentUpon>

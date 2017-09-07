@@ -8,7 +8,7 @@ namespace UI
     public partial class MemberTypeInfoList : Form
     {
         public event Action TypeEvent;
-        private static readonly MemberTypeInfoList memberTypeInfoList = new MemberTypeInfoList();
+        private static MemberTypeInfoList memberTypeInfoList;
         private MemberTypeInfoList()
         {
             InitializeComponent();
@@ -16,6 +16,10 @@ namespace UI
 
         public static MemberTypeInfoList Create()
         {
+            if (memberTypeInfoList == null || memberTypeInfoList.IsDisposed)
+            {
+                memberTypeInfoList = new MemberTypeInfoList();
+            }
             return memberTypeInfoList;
         }
 

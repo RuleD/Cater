@@ -15,7 +15,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DishTypeInfoList());
+            Application.Run(new FormMain());
         }
     }
 }

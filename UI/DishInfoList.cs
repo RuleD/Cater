@@ -12,24 +12,24 @@ using Model;
 
 namespace UI
 {
-    public partial class MemberInfoList : Form
+    public partial class DishInfoList : Form
     {
-        private static MemberInfoList memberInfoList;
-        private MemberInfoList()
+        private static DishInfoList dishInfoList;
+        private DishInfoList()
         {
             InitializeComponent();
         }
 
-        public static MemberInfoList Create()
+        public static DishInfoList Create()
         {
-            if (memberInfoList == null || memberInfoList.IsDisposed)
+            if (dishInfoList == null || dishInfoList.IsDisposed)
             {
-                memberInfoList = new MemberInfoList();
+                dishInfoList = new DishInfoList();
             }
-            return memberInfoList;
+            return dishInfoList;
         }
-        MemberInfoBll memberInfoBll = new MemberInfoBll();
-        private MemberTypeInfoBll memberTypeInfoBll = new MemberTypeInfoBll();
+        DishInfoBll dishInfoBll = new DishInfoBll();
+        private DishTypeInfoBll dishTypeInfoBll = new DishTypeInfoBll();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -39,25 +39,25 @@ namespace UI
 
         private void ReLoad_TypeList()
         {
-            cbType.DisplayMember = "MTitle";
-            cbType.ValueMember = "MId";
-            cbType.DataSource=memberTypeInfoBll.GetList();
+            cbType.DisplayMember = "DTitle";
+            cbType.ValueMember = "DId";
+            cbType.DataSource = dishTypeInfoBll.GetList();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            MemberInfo mi = new MemberInfo()
+            DishInfo mi = new DishInfo()
             {
-                MName = txtName.Text.Trim(),
-                MPhone = txtPhone.Text.Trim(),
-                MMoney = Convert.ToDecimal(txtMoney.Text.Trim()),
-                MTypeId = Convert.ToInt32(cbType.SelectedValue.ToString()),
-                MTitle = cbType.SelectedText,
-                MIsDelete = false
+                DTitle = txtTitle.Text.Trim(),
+                DPrice = Convert.ToDecimal(txtPrice.Text.Trim()),
+                DChar = txtChar.Text.Trim(),
+                DTypeId = Convert.ToInt32(cbType.SelectedValue.ToString()),
+                DTypeTitle = cbType.SelectedText,
+                DIsDelete = false
             };
             if (btn_Add.Text == "添加")
             {
-                if (memberInfoBll.Add(mi))
+                if (dishInfoBll.Add(mi))
                 {
                     btn_Cancel_Click(null, null);
                     ReLoad_List();
@@ -69,8 +69,8 @@ namespace UI
             }
             else
             {
-                mi.MId = Convert.ToInt32(txtId.Text.Trim());
-                if (memberInfoBll.Update(mi))
+                mi.DId = Convert.ToInt32(txtId.Text.Trim());
+                if (dishInfoBll.Update(mi))
                 {
                     btn_Cancel_Click(null, null);
                     ReLoad_List();
@@ -85,15 +85,15 @@ namespace UI
         private void ReLoad_List()
         {
             gvList.AutoGenerateColumns = false;
-            gvList.DataSource = memberInfoBll.GetList();
+            gvList.DataSource = dishInfoBll.GetList();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             txtId.Text = @"添加时无编号";
-            txtName.Text = "";
-            txtPhone.Text = "";
-            txtMoney.Text = "";
+            txtTitle.Text = "";
+            txtPrice.Text = "";
+            txtChar.Text = "";
             btn_Add.Text = @"添加";
         }
 
@@ -106,7 +106,7 @@ namespace UI
                 if (result==DialogResult.OK)
                 {
                     int id = Convert.ToInt32(rows[0].Cells[0].Value.ToString());
-                    if (memberInfoBll.Remove(id))
+                    if (dishInfoBll.Remove(id))
                     {
                         ReLoad_List();
                     }
@@ -121,17 +121,17 @@ namespace UI
         private void gvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = gvList.Rows[e.RowIndex];
-            txtId.Text = row.Cells["MId"].Value.ToString();
-            txtName.Text = row.Cells["MName"].Value.ToString();
-            txtPhone.Text = row.Cells["MPhone"].Value.ToString();
-            txtMoney.Text = row.Cells["MMoney"].Value.ToString();
-            cbType.Text = row.Cells["MTitle"].Value.ToString();
+            txtId.Text = row.Cells["DId"].Value.ToString();
+            txtTitle.Text = row.Cells["DTitle"].Value.ToString();
+            txtPrice.Text = row.Cells["DPrice"].Value.ToString();
+            txtChar.Text = row.Cells["DChar"].Value.ToString();
+            cbType.Text = row.Cells["DTypeTitle"].Value.ToString();
             btn_Add.Text = @"修改";
         }
 
         private void btn_Type_Click(object sender, EventArgs e)
         {
-            MemberTypeInfoList m=MemberTypeInfoList.Create();
+            DishTypeInfoList m = DishTypeInfoList.Create();
             m.TypeEvent += Reloading;
             m.Show();
             m.Focus();
@@ -141,6 +141,11 @@ namespace UI
         {
             ReLoad_List();
             ReLoad_TypeList();
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+            txtChar.Text = PinYinHelper.GetPinyin(txtTitle.Text.Trim());
         }
     }
 }

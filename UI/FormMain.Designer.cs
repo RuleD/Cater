@@ -58,6 +58,7 @@
             this.menuManager.Name = "menuManager";
             this.menuManager.Size = new System.Drawing.Size(68, 21);
             this.menuManager.Text = "店员管理";
+            this.menuManager.Click += new System.EventHandler(this.menuManager_Click);
             // 
             // menuMember
             // 
@@ -71,6 +72,7 @@
             this.menuDish.Name = "menuDish";
             this.menuDish.Size = new System.Drawing.Size(68, 21);
             this.menuDish.Text = "菜单管理";
+            this.menuDish.Click += new System.EventHandler(this.menuDish_Click);
             // 
             // menuTable
             // 

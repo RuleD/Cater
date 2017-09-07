@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MsChnCharInfo">
-      <HintPath>..\packages\MsChnCharInfo.1.0.0\MsChnCharInfo.dll</HintPath>
+    <Reference Include="ChnCharInfo">
+      <HintPath>..\packages\ChnCharInfo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
