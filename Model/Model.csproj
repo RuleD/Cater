@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TableInfo.cs" />
     <Compile Include="DishInfo.cs" />
     <Compile Include="HallInfo.cs" />
     <Compile Include="DishTypeInfo.cs" />

@@ -25,7 +25,7 @@ namespace Dal
                 {
                     DId = Convert.ToInt32(row["DId"]),
                     DTitle = row["DTitle"].ToString(),
-                    DIsDelete = row["DIsDelete"].ToString().Equals("1")
+                    DIsDelete = Convert.ToBoolean(row["DIsDelete"].ToString())
                 });
 
             }

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TableInfoDal.cs" />
     <Compile Include="ManagerInfoDal.cs" />
     <Compile Include="DishInfoDal.cs" />
     <Compile Include="MemberInfoDal.cs" />

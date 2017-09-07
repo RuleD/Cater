@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TableInfoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableInfoList.Designer.cs">
+      <DependentUpon>TableInfoList.cs</DependentUpon>
+    </Compile>
     <Compile Include="HallInfoList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="TableInfoList.resx">
+      <DependentUpon>TableInfoList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HallInfoList.resx">
       <DependentUpon>HallInfoList.cs</DependentUpon>
     </EmbeddedResource>

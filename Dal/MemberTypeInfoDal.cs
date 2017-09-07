@@ -30,7 +30,7 @@ namespace Dal
                     Mid = Convert.ToInt32(row["MId"]),
                     MTitle = row["MTitle"].ToString(),
                     MDiscount = Convert.ToDecimal(row["MDiscount"].ToString()),
-                    MIsDelete = row["MIsDelete"].ToString().Equals("1")
+                    MIsDelete = Convert.ToBoolean(row["MIsDelete"].ToString())
                 });
 
             }
