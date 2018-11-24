@@ -10,9 +10,9 @@ namespace Bll
     public class TableInfoBll
     {
         private TableInfoDal mtlDal = new TableInfoDal();
-        public List<TableInfo> GetList()
+        public List<TableInfo> GetList(params int[] str)
         {
-            return mtlDal.GetList();
+            return mtlDal.GetList(str);
         }
 
         public bool Add(TableInfo mi)

@@ -10,11 +10,17 @@ namespace Dal
 {
     public class TableInfoDal
     {
-        public List<TableInfo> GetList()
+        public List<TableInfo> GetList(params int[] str)
         {
             string sql = "select m1.*,m2.HTitle as THallTitle from TableInfo as m1 inner join HallInfo as m2 on m1.THallId=m2.HId where m1.TIsDelete = 0 ";
+            List<SQLiteParameter> listSp = new List<SQLiteParameter>();
+            if (str != null && str.Length > 0)
+            {
+                sql += " and m2.HId = @HId";
+                listSp.Add(new SQLiteParameter("HId",str[0]));
+            }
             //执行查询，获取数据
-            DataTable table = SqliteHelper.GetList(sql);
+            DataTable table = SqliteHelper.GetList(sql,listSp.ToArray());
             //构造集合对象
             List<TableInfo> list = new List<TableInfo>();
             //遍历数据表，将数据转存到集合中
